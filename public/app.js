@@ -1,66 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple Joke Generator</title>
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#ffd166;--muted:#94a3b8}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eef8;background:linear-gradient(180deg,#071024 0%, #081428 100%);display:flex;align-items:center;justify-content:center;height:100vh}
-    .card{width:min(720px,94vw);background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.7);}
-    h1{margin:0 0 6px 0;font-size:20px}
-    p.lead{margin:0 0 18px 0;color:var(--muted)}
-    .joke{min-height:84px;padding:18px;border-radius:10px;background:rgba(255,255,255,0.02);display:flex;flex-direction:column;justify-content:center;font-size:18px;line-height:1.35}
-    .controls{display:flex;gap:10px;margin-top:14px;align-items:center}
-    select,input[type=number]{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    button{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
-    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);}
-    .meta{display:flex;gap:8px;align-items:center;margin-top:12px}
-    .small{font-size:13px;color:var(--muted)}
-    .actions{margin-left:auto;display:flex;gap:8px}
-    footer{margin-top:14px;color:var(--muted);font-size:13px}
-    @media (max-width:520px){.controls{flex-direction:column;align-items:stretch}.actions{margin-left:0}}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Simple Joke Generator 🤖😂</h1>
-    <p class="lead">Click "New Joke" or press <strong>Space</strong> to get a fresh one. You can choose categories and copy/share the joke.</p>
-
-    <div class="joke" id="joke">Press <strong>New Joke</strong> to start — beware of dad-jokes.</div>
-
-    <div class="controls">
-      <label class="small">Category
-        <select id="category">
-          <option value="any">Any</option>
-          <option value="one-liner">One-liner</option>
-          <option value="pun">Pun</option>
-          <option value="dad">Dad joke</option>
-          <option value="programming">Programming</option>
-        </select>
-      </label>
-
-      <label class="small">Count
-        <input id="count" type="number" min="1" max="5" value="1" />
-      </label>
-
-      <button id="newBtn">New Joke</button>
-      <button class="secondary" id="copyBtn">Copy</button>
-
-      <div class="actions">
-        <button class="secondary" id="tweetBtn">Tweet</button>
-      </div>
-    </div>
-
-    <div class="meta">
-      <div class="small">Tip: Press <strong>Space</strong> for a quick joke.</div>
-      <footer>Made with ❤️ — save this file and open in any browser.</footer>
-    </div>
-  </div>
-
-  <script>
     // Local joke bank (self-contained). Add your own jokes here.
+console.log('runnig')
     const JOKES = [
       {cat:'one-liner', text:"I told my computer I needed a break — it said: 'No problem, I'll go to sleep.'"},
       {cat:'pun', text:"I'm reading a book about anti-gravity — it's impossible to put down."},
@@ -110,11 +49,12 @@
       if(count < 1) count = 1; if(count>5) count = 5;
       const r = pickJokes(cat, count);
       showJokes(r);
+      console.log("working")
     }
 
-    newBtn.addEventListener('click', newJoke);
+    newBtn?.addEventListener('click', newJoke);
 
-    copyBtn.addEventListener('click', async ()=>{
+    copyBtn?.addEventListener('click', async ()=>{
       const text = jokeEl.innerText;
       try{
         await navigator.clipboard.writeText(text);
@@ -125,14 +65,14 @@
       }
     });
 
-    tweetBtn.addEventListener('click', ()=>{
+    tweetBtn?.addEventListener('click', ()=>{
       const text = encodeURIComponent(jokeEl.innerText + '\n\nvia Simple Joke Generator');
       const url = `https://twitter.com/intent/tweet?text=${text}`;
       window.open(url,'_blank');
     });
 
     // Spacebar quick generate (when not focused on an input)
-    window.addEventListener('keydown', (e)=>{
+    window?.addEventListener('keydown', (e)=>{
       const active = document.activeElement;
       const isInput = active && (active.tagName === 'INPUT' || active.tagName === 'SELECT' || active.tagName === 'TEXTAREA');
       if(e.code === 'Space' && !isInput){
@@ -149,6 +89,3 @@
         jokeEl.style.opacity = 1;
       },10);
     })();
-  </script>
-</body>
-</html>

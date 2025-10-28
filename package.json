@@ -1,0 +1,23 @@
+{
+  "name": "joke_generator",
+  "version": "1.0.1",
+  "description": "Adding backend",
+  "main": "backend.js",
+  "scripts": {
+    "start": "nodemon backend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prajjwal6122/Joke-Generator.git"
+  },
+  "author": "prajjwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prajjwal6122/Joke-Generator/issues"
+  },
+  "homepage": "https://github.com/prajjwal6122/Joke-Generator#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

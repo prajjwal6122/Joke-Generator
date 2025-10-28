@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Joke Generator</title>
+  <link href="./Style.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="card">
+    <h1>Simple Joke Generator 🤖😂</h1>
+    <p class="lead">Click "New Joke" or press <strong>Space</strong> to get a fresh one. You can choose categories and copy/share the joke.</p>
+
+    <div class="joke" id="joke">Press <strong>New Joke</strong> to start — beware of dad-jokes.</div>
+
+    <div class="controls">
+      <label class="small">Category
+        <select id="category">
+          <option value="any">Any</option>
+          <option value="one-liner">One-liner</option>
+          <option value="pun">Pun</option>
+          <option value="dad">Dad joke</option>
+          <option value="programming">Programming</option>
+        </select>
+      </label>
+
+      <label class="small">Count
+        <input id="count" type="number" min="1" max="5" value="1" />
+      </label>
+
+      <button id="newBtn">New Joke</button>
+      <button class="secondary" id="copyBtn">Copy</button>
+
+      <div class="actions">
+        <button class="secondary" id="tweetBtn">Tweet</button>
+      </div>
+    </div>
+
+    <div class="meta">
+      <div class="small">Tip: Press <strong>Space</strong> for a quick joke.</div>
+      <footer>Made with ❤️ — save this file and open in any browser.</footer>
+    </div>
+  </div>
+<script src="app.js" ></script>
+</body>
+</html>
